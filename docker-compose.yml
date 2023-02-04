@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+
+  postgres: 
+    image: postgres:14
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - ./etc/postgres/sample.csv:/data/sample.csv
+      - ./etc/postgres/sample.sql:/docker-entrypoint-initdb.d/sample.sql 
+ mkdocs:
+  image: marcelmaatkamp/mkdocs-material-jupyter-pyvista:
