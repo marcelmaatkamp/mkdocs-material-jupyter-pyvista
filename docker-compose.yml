@@ -12,7 +12,6 @@ services:
       - ./etc/postgres/sample.sql:/docker-entrypoint-initdb.d/sample.sql
   mkdocs:
     image: marcelmaatkamp/mkdocs-material-jupyter-pyvista:${MKDOCS_MATERIAL_VERSION}
-    command: gh-deploy
     depends_on:
       - postgres
     build:
