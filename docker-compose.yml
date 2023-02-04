@@ -1,7 +1,7 @@
 version: "3.8"
 services:
 
-  postgres: 
+  postgres:
     image: postgres:14
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
@@ -9,6 +9,19 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - ./etc/postgres/sample.csv:/data/sample.csv
-      - ./etc/postgres/sample.sql:/docker-entrypoint-initdb.d/sample.sql 
- mkdocs:
-  image: marcelmaatkamp/mkdocs-material-jupyter-pyvista:
+      - ./etc/postgres/sample.sql:/docker-entrypoint-initdb.d/sample.sql
+  mkdocs:
+    image: marcelmaatkamp/mkdocs-material-jupyter-pyvista:${MKDOCS_MATERIAL_VERSION}
+    depends_on:
+      - postgres
+    build:
+      context: .
+      args:
+        JUPYTER_VERSION: ${JUPYTER_VERSION}
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/docs
+      - /Users/marcel/.ssh/id_rsa:/root/.ssh/id_rsa
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/postgres
