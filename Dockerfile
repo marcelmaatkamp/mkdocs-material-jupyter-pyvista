@@ -31,7 +31,7 @@ RUN pip install  \
     material
 
 RUN \
-  git config --system --add safe.directory /docs/
+  git config --global --add safe.directory /docs/
 
 EXPOSE 8000
 ENTRYPOINT ["mkdocs"]
