@@ -21,7 +21,7 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - .:/docs
+      - .:/docs/
       - /Users/marcel/.ssh/id_rsa:/root/.ssh/id_rsa
     environment:
       DATABASE_URL: postgresql://postgres:postgres@postgres:5432/postgres

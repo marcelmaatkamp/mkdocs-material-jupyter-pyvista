@@ -30,6 +30,9 @@ RUN pip install  \
     requests>=2.26 \
     material
 
+RUN \
+  git config --system --add safe.directory /docs/
+
 EXPOSE 8000
 ENTRYPOINT ["mkdocs"]
 CMD ["serve", "--dev-addr=0.0.0.0:8000"]
