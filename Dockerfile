@@ -14,22 +14,6 @@ COPY material /docs/material
 COPY docs /docs/docs 
 COPY mkdocs.yml /docs/mkdocs.yml
 
-RUN pip install  \
-    mkdocs-minify-plugin>=0.3 \
-    mkdocs-redirects>=1.0 \
-    pillow>=9.0 \
-    cairosvg>=2.5 \
-    jinja2>=3.0 \
-    markdown>=3.2 \
-    mkdocs>=1.4.2 \
-    mkdocs-material-extensions>=1.1 \
-    pygments>=2.14 \
-    pymdown-extensions>=9.9.1 \
-    colorama>=0.4 \
-    regex>=2022.4.24 \
-    requests>=2.26 \
-    material
-
 RUN \
   git config --global --add safe.directory /docs
 
