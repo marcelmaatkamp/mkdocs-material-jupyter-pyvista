@@ -1,5 +1,5 @@
-ARG JUPYTER_VERSION
-FROM marcelmaatkamp/mkdocs-jupyter-example-jupyter:${JUPYTER_VERSION}
+ARG MKDOCS_MATERIAL_VERSION
+FROM FROM ghcr.io/marcelmaatkamp/mkdocs-material-jupyter:${MKDOCS_MATERIAL_VERSION}
 
 COPY requirements.in requirements.in
 RUN \
