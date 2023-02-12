@@ -1,0 +1,44 @@
+name: Docker Image CI
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  docker:
+    runs-on: ubuntu-latest
+    environment: Variables
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./Dockerfile
+          platforms: linux/amd64,linux/arm64
+          build-args: |
+            MKDOCS_MATERIAL_VERSION=${{ vars.MKDOCS_MATERIAL_VERSION }}
+          push: true
+          tags: |
+            marcelmaatkamp/mkdocs-material-jupyter-pyvista:${{ vars.MKDOCS_MATERIAL_VERSION }}
+            marcelmaatkamp/mkdocs-material-jupyter-pyvista:latest
+            ghcr.io/marcelmaatkamp/mkdocs-material-jupyter-pyvista:${{ vars.MKDOCS_MATERIAL_VERSION }}
+            ghcr.io/marcelmaatkamp/mkdocs-material-jupyter-pyvista:latest
