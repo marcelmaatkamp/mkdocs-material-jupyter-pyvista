@@ -18,7 +18,7 @@ services:
     build:
       context: .
       args:
-        JUPYTER_VERSION: ${JUPYTER_VERSION}
+        MKDOCS_MATERIAL_VERSION: ${MKDOCS_MATERIAL_VERSION}
     ports:
       - 8000:8000
     volumes:
