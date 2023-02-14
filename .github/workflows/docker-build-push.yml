@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: Variables
     steps:
-      - name: Checkout
+      - name: Checkout sourcecode 
         uses: actions/checkout@v3
-      - name: Set up QEMU
+      - name: Set up QEMU environment
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -28,17 +28,24 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build and push
+      - name: Build and push docker containers
         uses: docker/build-push-action@v4
         with:
           context: .
           file: ./Dockerfile
-          platforms: linux/amd64 #,linux/arm64
+          platforms: linux/amd64 # ,linux/arm64
           build-args: |
             MKDOCS_MATERIAL_VERSION=${{ vars.MKDOCS_MATERIAL_VERSION }}
           push: true
           tags: |
-            marcelmaatkamp/mkdocs-material-jupyter-pyvista:${{ vars.MKDOCS_MATERIAL_VERSION }}
-            marcelmaatkamp/mkdocs-material-jupyter-pyvista:latest
-            ghcr.io/marcelmaatkamp/mkdocs-material-jupyter-pyvista:${{ vars.MKDOCS_MATERIAL_VERSION }}
-            ghcr.io/marcelmaatkamp/mkdocs-material-jupyter-pyvista:latest
+            ${{ github.repository }}:${{ vars.MKDOCS_MATERIAL_VERSION }}
+            ${{ github.repository }}:latest
+            ghcr.io/${{ github.repository }}:${{ vars.MKDOCS_MATERIAL_VERSION }}
+            ghcr.io/${{ github.repository }}:latest
+      - name: Sync readme.md to docker hub
+        uses: ms-jpq/sync-dockerhub-readme@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: ${{ github.repository }}
+          readme: "./README.md"
