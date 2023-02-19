@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://squidfunk.github.io/mkdocs-material/9.0.13/</loc>
+         <lastmod>2023-02-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://squidfunk.github.io/mkdocs-material/9.0.13/about/</loc>
+         <lastmod>2023-02-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://squidfunk.github.io/mkdocs-material/9.0.13/jupyter/ais/</loc>
+         <lastmod>2023-02-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://squidfunk.github.io/mkdocs-material/9.0.13/jupyter/PythonDataScienceHandbook/04.01-simple-line-plots/</loc>
+         <lastmod>2023-02-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://squidfunk.github.io/mkdocs-material/9.0.13/jupyter/PythonDataScienceHandbook/04.14-visualization-with-seaborn/</loc>
+         <lastmod>2023-02-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://squidfunk.github.io/mkdocs-material/9.0.13/jupyter/pyvista/pyvista/</loc>
+         <lastmod>2023-02-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>
