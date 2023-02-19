@@ -28,6 +28,8 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Load .env file
+        uses: xom9ikk/dotenv@v2
       - name: Build and push docker containers
         uses: docker/build-push-action@v4
         with:
@@ -35,12 +37,12 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64 # ,linux/arm64
           build-args: |
-            MKDOCS_MATERIAL_VERSION=${{ vars.MKDOCS_MATERIAL_VERSION }}
+            MKDOCS_MATERIAL_VERSION=${{ env.MKDOCS_MATERIAL_VERSION }}
           push: true
           tags: |
-            ${{ github.repository }}:${{ vars.MKDOCS_MATERIAL_VERSION }}
+            ${{ github.repository }}:${{ env.MKDOCS_MATERIAL_VERSION }}
             ${{ github.repository }}:latest
-            ghcr.io/${{ github.repository }}:${{ vars.MKDOCS_MATERIAL_VERSION }}
+            ghcr.io/${{ github.repository }}:${{ env.MKDOCS_MATERIAL_VERSION }}
             ghcr.io/${{ github.repository }}:latest
       - name: Sync readme.md to docker hub
         uses: ms-jpq/sync-dockerhub-readme@v1
