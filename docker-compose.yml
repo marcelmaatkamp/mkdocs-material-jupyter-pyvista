@@ -28,6 +28,15 @@ services:
     environment:
       DATABASE_URL: postgresql://postgres:postgres@postgres:5432/postgres
 
+  gh-deploy:
+    image: marcelmaatkamp/mkdocs-material-jupyter-pyvista:${MKDOCS_MATERIAL_VERSION}
+    entrypoint: mkdocs
+    command: gh-deploy --force
+    volumes:
+      - .:/docs/
+      - ~/.ssh/known_hosts:/home/jovyan/.ssh/known_hosts:ro
+      - ~/.ssh/id_rsa:/home/jovyan/.ssh/id_rsa:ro
+
 #  entrypoint: jupyter, command: --version
 #  mkdocs-material-jupyter-pyvista-jupyter-1  | Selected Jupyter core packages...
 #  mkdocs-material-jupyter-pyvista-jupyter-1  | IPython          : 8.9.0
