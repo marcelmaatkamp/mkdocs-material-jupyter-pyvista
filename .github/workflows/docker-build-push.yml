@@ -52,7 +52,7 @@ jobs:
             ghcr.io/${{ github.repository }}:latest
             
       - name: gh-pages
-        run: docker-compose -f "docker-compose.yml" up -d --build
+        run: docker-compose -f "docker-compose.yml" run mkdocs gh-deploy
 
       - name: Sync readme.md to docker hub
         uses: ms-jpq/sync-dockerhub-readme@v1
