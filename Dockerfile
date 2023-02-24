@@ -1,6 +1,16 @@
 ARG MKDOCS_MATERIAL_VERSION
 FROM ghcr.io/marcelmaatkamp/mkdocs-material-jupyter:${MKDOCS_MATERIAL_VERSION}
 
+USER root
+RUN \
+ apt-get update -y &&\
+ apt-get -y install \
+    xvfb &&\
+ rm -rf \
+   /var/lib/apt/lists/* \
+   /var/cache/apt/*
+USER jovyan
+
 COPY requirements.in requirements.in
 RUN \
   pip install --upgrade \

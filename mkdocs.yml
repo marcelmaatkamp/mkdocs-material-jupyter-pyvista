@@ -165,3 +165,7 @@ nav:
       - Seaborn: jupyter/PythonDataScienceHandbook/04.14-visualization-with-seaborn.ipynb
     - PyVista: 
       - PyVista: jupyter/pyvista/pyvista.ipynb
+    - Pyvis:
+      - NetworkX: jupyter/pyvista/networkx.ipynb
+    - Gravis:
+      - Gravis: jupyter/gravis/gravis.ipynb

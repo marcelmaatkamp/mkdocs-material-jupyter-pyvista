@@ -23,8 +23,7 @@ services:
       - 8000:8000
     volumes:
       - .:/docs/
-      - /Users/marcel/.ssh/id_rsa:/home/jovyan/.ssh/id_rsa:ro
-      - /Users/marcel/.ssh/id_rsa.pub:/home/jovyan/.ssh/id_rsa.pub:ro
+      - ~/.ssh/id_rsa:/home/jovyan/.ssh/id_rsa:ro
     environment:
       DATABASE_URL: postgresql://postgres:postgres@postgres:5432/postgres
 
