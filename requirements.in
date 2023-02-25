@@ -40,3 +40,5 @@ gravis
 pyimagej
 itkwidgets
 napari
+PySide6
+jupyter-rfb
