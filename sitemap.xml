@@ -2,42 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/</loc>
-         <lastmod>2023-02-24</lastmod>
+         <lastmod>2023-02-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/about/</loc>
-         <lastmod>2023-02-24</lastmod>
+         <lastmod>2023-02-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/jupyter/ais/</loc>
-         <lastmod>2023-02-24</lastmod>
+         <lastmod>2023-02-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://squidfunk.github.io/mkdocs-material/jupyter/PyImageJ/PyImageJ/</loc>
+         <lastmod>2023-02-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/jupyter/PythonDataScienceHandbook/04.01-simple-line-plots/</loc>
-         <lastmod>2023-02-24</lastmod>
+         <lastmod>2023-02-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/jupyter/PythonDataScienceHandbook/04.14-visualization-with-seaborn/</loc>
-         <lastmod>2023-02-24</lastmod>
+         <lastmod>2023-02-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/jupyter/gravis/gravis/</loc>
-         <lastmod>2023-02-24</lastmod>
+         <lastmod>2023-02-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/jupyter/pyvista/networkx/</loc>
-         <lastmod>2023-02-24</lastmod>
+         <lastmod>2023-02-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://squidfunk.github.io/mkdocs-material/jupyter/pyvista/pyvista/</loc>
-         <lastmod>2023-02-24</lastmod>
+         <lastmod>2023-02-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
