@@ -6,11 +6,24 @@ RUN \
  apt-get update -y &&\
  apt-get -y install \
     xvfb \
-    libgl1-mesa-dev&&\
+    libgl1-mesa-dev \
+    gnupg \
+    ca-certificates \
+    curl \
+    zip &&\
  rm -rf \
    /var/lib/apt/lists/* \
    /var/cache/apt/*
 USER jovyan
+
+# sdkman
+
+RUN \
+  curl -s "https://get.sdkman.io" | bash &&\
+  source "/home/jovyan/.sdkman/bin/sdkman-init.sh" &&\
+  sdk install \
+   java 19.0.2-zulu \
+   mvn
 
 COPY requirements.in requirements.in
 RUN \
@@ -18,11 +31,8 @@ RUN \
     pip \
     pip-tools &&\
   pip-compile requirements.in  --resolver=backtracking --max-rounds 20 --verbose &&\
-  pip install -r requirements.txt
-
-RUN \
- conda install -c \
-  beakerx beakerx_all
+  pip install -r requirements.txt &&\
+  python -c 'import imagej; ij = imagej.init("2.5.0"); print(ij.getVersion())'
 
 WORKDIR /docs/
 COPY material /docs/material 
