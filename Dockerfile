@@ -5,7 +5,8 @@ USER root
 RUN \
  apt-get update -y &&\
  apt-get -y install \
-    xvfb &&\
+    xvfb \
+    libgl1-mesa-dev&&\
  rm -rf \
    /var/lib/apt/lists/* \
    /var/cache/apt/*
@@ -18,6 +19,10 @@ RUN \
     pip-tools &&\
   pip-compile requirements.in  --resolver=backtracking --max-rounds 20 --verbose &&\
   pip install -r requirements.txt
+
+RUN \
+ conda install -c \
+  beakerx beakerx_all
 
 WORKDIR /docs/
 COPY material /docs/material 

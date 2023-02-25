@@ -1,2 +1,3 @@
 site/
-.ipynb_checkpoints/
+.ipynb_checkpoints
+.DS_Storex
