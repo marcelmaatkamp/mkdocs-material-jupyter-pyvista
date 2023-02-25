@@ -30,50 +30,19 @@ services:
 
   gh-deploy:
     image: marcelmaatkamp/mkdocs-material-jupyter-pyvista:${MKDOCS_MATERIAL_VERSION}
-    entrypoint: mkdocs
-    command: gh-deploy --force
+    entrypoint: bash
+    command: -c "source \"/home/jovyan/.sdkman/bin/sdkman-init.sh\" && mkdocs gh-deploy --force --ignore-version"
     volumes:
       - .:/docs/
       - ~/.ssh/known_hosts:/home/jovyan/.ssh/known_hosts:ro
       - ~/.ssh/id_rsa:/home/jovyan/.ssh/id_rsa:ro
 
-#  entrypoint: jupyter, command: --version
-#  mkdocs-material-jupyter-pyvista-jupyter-1  | Selected Jupyter core packages...
-#  mkdocs-material-jupyter-pyvista-jupyter-1  | IPython          : 8.9.0
-#  mkdocs-material-jupyter-pyvista-jupyter-1  | ipykernel        : 6.21.1
-#  mkdocs-material-jupyter-pyvista-jupyter-1  | ipywidgets       : 7.7.2
-#  mkdocs-material-jupyter-pyvista-jupyter-1  | jupyter_client   : 8.0.2
-#  mkdocs-material-jupyter-pyvista-jupyter-1  | jupyter_core     : 5.2.0
-#  mkdocs-material-jupyter-pyvista-jupyter-1  | jupyter_server   : 2.1.0
-#  mkdocs-material-jupyter-pyvista-jupyter-1  | jupyterlab       : 3.5.3
-#  mkdocs-material-jupyter-pyvista-jupyter-1  | nbclient         : 0.7.2
-#  mkdocs-material-jupyter-pyvista-jupyter-1  | nbconvert        : 6.5.4
-#  mkdocs-material-jupyter-pyvista-jupyter-1  | nbformat         : 5.7.3
-#  mkdocs-material-jupyter-pyvista-jupyter-1  | notebook         : 6.4.12
-#  mkdocs-material-jupyter-pyvista-jupyter-1  | qtconsole        : not installed
-#  mkdocs-material-jupyter-pyvista-jupyter-1  | traitlets        : 5.6.0
-
-# notebook==6.4.12 (6.5.2)
-# via widgetsnbextension
-# widgetsnbextension==3.6.1 (4.0.5)
-#  via ipywidgets
-# ipywidgets==7.7.2 (8.0.4)
-# via
-#   -r requirements.in
-#   ipycanvas
-#   ipydatawidgets
-#   ipyevents
-#   ipygany
-#   ipympl
-#   ipyvtklink
-#   pythreejs
-
   jupyter:
     image: marcelmaatkamp/mkdocs-material-jupyter-pyvista:${MKDOCS_MATERIAL_VERSION}
     # user: ${UID}:${GID}
-    entrypoint: jupyter
-  # command: --version # labs --ip 0.0.0.0 --no-browser --NotebookApp.token=''
-    command: lab --ip 0.0.0.0 --no-browser --NotebookApp.token=''
+    entrypoint: bash
+    # command: --version # labs --ip 0.0.0.0 --no-browser --NotebookApp.token=''
+    command: -c "source \"/home/jovyan/.sdkman/bin/sdkman-init.sh\" && jupyter lab --ip 0.0.0.0 --no-browser --NotebookApp.token=\'\'"
     ports:
       - 8888:8888
     volumes:

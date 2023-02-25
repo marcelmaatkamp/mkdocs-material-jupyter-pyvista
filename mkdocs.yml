@@ -169,3 +169,5 @@ nav:
       - NetworkX: jupyter/pyvista/networkx.ipynb
     - Gravis:
       - Gravis: jupyter/gravis/gravis.ipynb
+    - PyImageJ:
+      - PyImageJ: jupyter/PyImageJ/PyImageJ.ipynb
