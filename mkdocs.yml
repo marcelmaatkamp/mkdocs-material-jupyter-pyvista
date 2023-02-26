@@ -171,3 +171,11 @@ nav:
       - Gravis: jupyter/gravis/gravis.ipynb
     - PyImageJ:
       - PyImageJ: jupyter/PyImageJ/PyImageJ.ipynb
+    - napari:
+      - napari: jupyter/napari/napari.ipynb
+    - vispy:
+      - vispy: jupyter/vispy/vispy.ipynb
+      - rotating: jupyter/vispy/rotating.ipynb
+      - gradient: jupyter/vispy/gradient.ipynb
+      - gloo: jupyter/vispy/gloo.ipynb
+      - gloo_molecular: jupyter/vispy/gloo_molecular.ipynb

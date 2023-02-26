@@ -12,6 +12,7 @@ pythreejs
 ipygany
 trame
 ipyvtklink
+panel
 
 # https://github.com/danielfrg/mkdocs-jupyter/issues/96
 # https://github.com/danielfrg/mkdocs-jupyter/issues/121
