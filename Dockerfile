@@ -10,7 +10,19 @@ RUN \
     gnupg \
     ca-certificates \
     curl \
-    zip &&\
+    zip \
+    libx11-xcb-dev \
+    libglu1-mesa-dev \
+    libxrender-dev \
+    libxi-dev \
+    libxkbcommon-dev \
+    libxkbcommon-x11-dev \
+    libxcb-xinerama0 \
+    qt6-base-dev \
+    pkg-config \
+    libglib2.0-dev \
+    libgtk-3-dev \
+&&\
  rm -rf \
    /var/lib/apt/lists/* \
    /var/cache/apt/*
@@ -18,6 +30,7 @@ USER jovyan
 
 COPY requirements.in requirements.in
 RUN \
+  pip install attrdict3 &&\
   pip install --upgrade \
     pip \
     pip-tools &&\
@@ -42,6 +55,8 @@ RUN \
   sdk install maven &&\
   source "$HOME/.sdkman/bin/sdkman-init.sh" &&\
   python -c 'import imagej; ij = imagej.init("2.5.0"); print(ij.getVersion())'
+
+ENV QT_QPA_PLATFORM offscreen
 
 EXPOSE 8000
 ENTRYPOINT ["mkdocs"]

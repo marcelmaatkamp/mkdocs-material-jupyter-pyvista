@@ -42,3 +42,16 @@ itkwidgets
 napari
 PySide6
 jupyter-rfb
+pyqt6
+pytest
+# pyside: only these python versions are supported: [(2, 6), (2, 7), (3, 2), (3, 3), (3, 4)]
+pyside2
+pyside6
+glfw
+pysdl2
+wxPython 
+xrpl-py
+requests
+toml
+pyglet
+pyopengltk
